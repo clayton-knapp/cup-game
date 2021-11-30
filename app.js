@@ -28,43 +28,43 @@ let totalWins = 0;
 
 
 cup1ButtonEl.addEventListener('click', () => {
-  // - Set State
-  // - reset styling
-  cup1ImageEl.src = './assets/cup.png';
-  cup2ImageEl.src = './assets/cup.png';
-  cup3ImageEl.src = './assets/cup.png';
+// - Set State
+// - reset styling
+    cup1ImageEl.src = './assets/cup.png';
+    cup2ImageEl.src = './assets/cup.png';
+    cup3ImageEl.src = './assets/cup.png';
 
   // - increment total games
-  totalGames++;
+    totalGames++;
   // console.log('total games: ' + totalGames);
 
   // - use Math Random to generate pick of which cup is correct
-  const pickedCup = Math.floor(Math.random() * 3);
+    const pickedCup = Math.floor(Math.random() * 3);
   // console.log(pickedCup);
 
   // - Compare the generated correct cup with one user clicked
   //   - if correct one was picked - increment wins
-  if (pickedCup === 0) {
-    totalWins++;
+    if (pickedCup === 0) {
+        totalWins++;
     // alert("u won!");
-  };
+    }
 
   //   - if incorrect was picked - dont do anything - derive losses
 
   // -Update the DOM
   //   - change image revealing correct cup
 
-  if (pickedCup === 0) {
-    cup1ImageEl.src = './assets/cup-ball.png';
-  } else if (pickedCup === 1) {
-     cup2ImageEl.src = './assets/cup-ball.png';
-  } else if (pickedCup === 2) {
-     cup3ImageEl.src = './assets/cup-ball.png';
-  };
+    if (pickedCup === 0) {
+        cup1ImageEl.src = './assets/cup-ball.png';
+    } else if (pickedCup === 1) {
+        cup2ImageEl.src = './assets/cup-ball.png';
+    } else if (pickedCup === 2) {
+        cup3ImageEl.src = './assets/cup-ball.png';
+    }
   //   - change numbers of wins/losses/total
-  totalGamesSpanEl.textContent = totalGames;
-  totalWinsSpanEl.textContent = totalWins;
-  totalLossesSpanEl.textContent = totalGames - totalWins;
+    totalGamesSpanEl.textContent = totalGames;
+    totalWinsSpanEl.textContent = totalWins;
+    totalLossesSpanEl.textContent = totalGames - totalWins;
 
 });
 
