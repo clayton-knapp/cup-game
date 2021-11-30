@@ -89,3 +89,38 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+.cup-container {
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    /* align-items: center; */
+    padding-top: 50px;
+}
+
+.cups {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cups img {
+    width: 200px;
+    padding: 20px;
+}
+
+.cups button {
+    cursor: pointer;
+    width: 100px;
+    background-color: blueviolet;
+    color: pink;
+}
+
+.results {
+margin-top: 20px;;
+}
+.results p {
+    padding: 0px;
+    margin:0px;
+}

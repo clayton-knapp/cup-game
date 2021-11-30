@@ -23,3 +23,33 @@ Additional considerations:
   - What needs to live in a persistence layer?
 - Is there some state we need to initialize?
 - Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+
+
+PLAN
+HTML Setup
+- 3 divs for cups
+  WHY - need to show which cup the ball is under and replace that image
+  HOW? - update the DOM - set the image source to new image
+
+- 3 buttons
+  WHY? - need to get event data on what user clicked
+  HOW? - have event listeners with click for reach button
+
+- 3 spans to display wins/losses/total
+  WHY? - to show user total number of wins, losses, and total games
+  HOW - change the textContent of the span
+
+  EVENTS
+  - User clicks one of 3 buttons
+  - Set State
+    - reset styling
+    - increment total games
+    - use Math Random to generate pick of which cup is correct
+    - Compare the generated correct cup with one user clicked
+      - if correct one was picked - increment wins
+      - if incorrect was picked - dont do anything - derive losses
+    -Update the DOM
+      - change image revealing correct cup
+      - change numbers of wins/losses/total
+
+    - STRETCH - try again button
