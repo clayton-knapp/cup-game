@@ -95,6 +95,7 @@ footer {
     flex-direction:row;
     justify-content: flex-end;
     padding-top: 50px;
+    /* height: 500px; */
 }
 
 .cups {
@@ -102,18 +103,20 @@ footer {
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    /* height: 500px; */
 }
 
 .cups img {
     width: 200px;
     padding: 20px;
+    height: 300px;
 }
 
 .cups button {
     cursor: pointer;
     width: 100px;
-    background-color: blueviolet;
-    color: pink;
+    /* background-color: blueviolet;
+    color: pink; */
 }
 
 .results {
@@ -122,4 +125,13 @@ margin-top: 20px;;
 .results p {
     padding: 0px;
     margin:0px;
+}
+
+#hard-reset {
+    margin: 10px;
+    cursor: pointer;
+}
+
+#try-again {
+    margin-top: 20px;
 }

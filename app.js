@@ -12,13 +12,19 @@ const totalGamesSpanEl = document.querySelector('#total-games');
 const totalWinsSpanEl = document.querySelector('#total-wins');
 const totalLossesSpanEl = document.querySelector('#total-losses');
 
-
+const hardResetButtonEl = document.querySelector('#hard-reset');
+const tryAgainButtonEl = document.querySelector('#try-again');
 
 
 // let state
 
 let totalGames = 0;
 let totalWins = 0;
+
+const cupsPossible = ['cup1', 'cup2', 'cup3'];
+
+tryAgainButtonEl.disabled = true;
+
 // we will derive state of total losses
 
 // set event listeners 
@@ -29,24 +35,45 @@ let totalWins = 0;
 
 cup1ButtonEl.addEventListener('click', () => {
     // - use Math Random to generate pick of which cup is correct
-    const pickedCup = Math.ceil(Math.random() * 3);
+    const pickedCup = getRandomItem(cupsPossible);
 
-    handleGuess(1, pickedCup);
+    handleGuess('cup1', pickedCup);
 });
 
 cup2ButtonEl.addEventListener('click', () =>{
     // - use Math Random to generate pick of which cup is correct
-    const pickedCup = Math.ceil(Math.random() * 3);
+    const pickedCup = getRandomItem(cupsPossible);
 
-    handleGuess(2, pickedCup);
+    handleGuess('cup2', pickedCup);
 });
 
 cup3ButtonEl.addEventListener('click', () =>{
     // - use Math Random to generate pick of which cup is correct
-    const pickedCup = Math.ceil(Math.random() * 3);
+    const pickedCup = getRandomItem(cupsPossible);
 
-    handleGuess(3, pickedCup);
+    handleGuess('cup3', pickedCup);
 });
+
+hardResetButtonEl.addEventListener('click', ()=>{
+    resetImages();
+    totalGames = 0;
+    totalWins = 0;
+    displayWinsLossesTotal();
+});
+
+tryAgainButtonEl.addEventListener('click', ()=> {
+    resetImages();
+    cup1ButtonEl.disabled = false;
+    cup2ButtonEl.disabled = false;
+    cup3ButtonEl.disabled = false;
+    tryAgainButtonEl.disabled = true;
+
+});
+
+function getRandomItem(arr) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+}
 
 function resetImages(){
     cup1ImageEl.src = './assets/cup.png';
@@ -77,13 +104,19 @@ function handleGuess(userGuess, correctCup){
     // -Update the DOM
     //   - change image revealing correct cup
 
-    if (correctCup === 1) {
+    if (correctCup === 'cup1') {
         cup1ImageEl.src = './assets/cup-ball.png';
-    } else if (correctCup === 2) {
+    } else if (correctCup === 'cup2') {
         cup2ImageEl.src = './assets/cup-ball.png';
-    } else if (correctCup === 3) {
+    } else if (correctCup === 'cup3') {
         cup3ImageEl.src = './assets/cup-ball.png';
     }
+
     //   - change numbers of wins/losses/total
     displayWinsLossesTotal();
+
+    cup1ButtonEl.disabled = true;
+    cup2ButtonEl.disabled = true;
+    cup3ButtonEl.disabled = true;
+    tryAgainButtonEl.disabled = false;
 }
