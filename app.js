@@ -28,50 +28,62 @@ let totalWins = 0;
 
 
 cup1ButtonEl.addEventListener('click', () => {
-// - Set State
-// - reset styling
-    cup1ImageEl.src = './assets/cup.png';
-    cup2ImageEl.src = './assets/cup.png';
-    cup3ImageEl.src = './assets/cup.png';
+    // - use Math Random to generate pick of which cup is correct
+    const pickedCup = Math.ceil(Math.random() * 3);
 
-  // - increment total games
-    totalGames++;
-  // console.log('total games: ' + totalGames);
-
-  // - use Math Random to generate pick of which cup is correct
-    const pickedCup = Math.floor(Math.random() * 3);
-  // console.log(pickedCup);
-
-  // - Compare the generated correct cup with one user clicked
-  //   - if correct one was picked - increment wins
-    if (pickedCup === 0) {
-        totalWins++;
-    // alert("u won!");
-    }
-
-  //   - if incorrect was picked - dont do anything - derive losses
-
-  // -Update the DOM
-  //   - change image revealing correct cup
-
-    if (pickedCup === 0) {
-        cup1ImageEl.src = './assets/cup-ball.png';
-    } else if (pickedCup === 1) {
-        cup2ImageEl.src = './assets/cup-ball.png';
-    } else if (pickedCup === 2) {
-        cup3ImageEl.src = './assets/cup-ball.png';
-    }
-  //   - change numbers of wins/losses/total
-    totalGamesSpanEl.textContent = totalGames;
-    totalWinsSpanEl.textContent = totalWins;
-    totalLossesSpanEl.textContent = totalGames - totalWins;
-
+    handleGuess(1, pickedCup);
 });
 
 cup2ButtonEl.addEventListener('click', () =>{
+    // - use Math Random to generate pick of which cup is correct
+    const pickedCup = Math.ceil(Math.random() * 3);
 
+    handleGuess(2, pickedCup);
 });
 
 cup3ButtonEl.addEventListener('click', () =>{
+    // - use Math Random to generate pick of which cup is correct
+    const pickedCup = Math.ceil(Math.random() * 3);
 
+    handleGuess(3, pickedCup);
 });
+
+function resetImages(){
+    cup1ImageEl.src = './assets/cup.png';
+    cup2ImageEl.src = './assets/cup.png';
+    cup3ImageEl.src = './assets/cup.png';
+}
+
+function displayWinsLossesTotal(){
+//   - change numbers of wins/losses/total
+    totalGamesSpanEl.textContent = totalGames;
+    totalWinsSpanEl.textContent = totalWins;
+    totalLossesSpanEl.textContent = totalGames - totalWins;
+}
+
+function handleGuess(userGuess, correctCup){
+    // - Set State
+    // - reset styling
+    resetImages();
+
+      // - increment total games
+    totalGames++;
+
+    // - Compare the generated correct cup with one user clicked
+    //   - if correct one was picked - increment wins
+    if (userGuess === correctCup) {
+        totalWins++;
+    }
+    // -Update the DOM
+    //   - change image revealing correct cup
+
+    if (correctCup === 1) {
+        cup1ImageEl.src = './assets/cup-ball.png';
+    } else if (correctCup === 2) {
+        cup2ImageEl.src = './assets/cup-ball.png';
+    } else if (correctCup === 3) {
+        cup3ImageEl.src = './assets/cup-ball.png';
+    }
+    //   - change numbers of wins/losses/total
+    displayWinsLossesTotal();
+}
