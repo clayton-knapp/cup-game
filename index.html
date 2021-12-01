@@ -19,18 +19,29 @@
         </div>
     </header>
     <main>
+        <p class="question">How many cups do you want to play with?<p/>
+        <select name="Cups" id="cup-dropdown">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         <div class="cup-container">
-            <div class="cups">
+            <div class="cups" id='cup1-div'>
                 <img src="./assets/cup.png" alt="" id="cup1-image" class="images">
                 <button id="cup1-button" class="buttons">This cup!</button>
             </div>
-            <div class="cups">
+            <div class="cups" id='cup2-div'>
                 <img src="./assets/cup.png" alt="" id="cup2-image" class="images">
                 <button id="cup2-button" class="buttons">This cup!</button>
             </div>
-            <div class="cups">
+            <div class="cups" id='cup3-div'>
                 <img src="./assets/cup.png" alt="" id="cup3-image" class="images">
                 <button id="cup3-button" class="buttons">This cup!</button>
+            </div>
+            <div class="cups" id="cup4-div">
+                <img src="./assets/cup.png" alt="" id="cup4-image" class="images">
+                <button id="cup4-button" class="buttons">This cup!</button>
             </div>
         </div>
         <button id=try-again>Try Again</button>

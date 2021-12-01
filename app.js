@@ -3,10 +3,12 @@
 const cup1ImageEl = document.querySelector('#cup1-image');
 const cup2ImageEl = document.querySelector('#cup2-image');
 const cup3ImageEl = document.querySelector('#cup3-image');
+const cup4ImageEl = document.querySelector('#cup4-image');
 
 const cup1ButtonEl = document.querySelector('#cup1-button');
 const cup2ButtonEl = document.querySelector('#cup2-button');
 const cup3ButtonEl = document.querySelector('#cup3-button');
+const cup4ButtonEl = document.querySelector('#cup4-button');
 
 const totalGamesSpanEl = document.querySelector('#total-games');
 const totalWinsSpanEl = document.querySelector('#total-wins');
@@ -14,6 +16,15 @@ const totalLossesSpanEl = document.querySelector('#total-losses');
 
 const hardResetButtonEl = document.querySelector('#hard-reset');
 const tryAgainButtonEl = document.querySelector('#try-again');
+
+const cupDropdownEl = document.querySelector('#cup-dropdown');
+
+
+if (cupDropdownEl.value === 2) {
+    document.querySelector('#cup3-div').style.display = 'none';
+    document.querySelector('#cup4-div').style.display = 'none';
+    document.querySelector('#cup5-div').style.display = 'none';
+}
 
 
 // let state

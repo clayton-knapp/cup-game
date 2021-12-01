@@ -135,3 +135,13 @@ margin-top: 20px;;
 #try-again {
     margin-top: 20px;
 }
+
+.question {
+    margin: 0px;
+    padding: 0px;
+}
+
+#cup-dropdown {
+    margin: 0px;
+    padding: 0px;
+}
